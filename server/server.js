@@ -9,8 +9,10 @@ const io = require("socket.io")(server, {
       methods: ["GET", "POST"]
     }
   });
+  const path=require("path")
 
-
+  //connecting to react build (frontend and backend)
+  app.use(exp.static(path.join(__dirname, '../client/build')));
 
 
   
@@ -32,6 +34,12 @@ mclient
      
 })
 .catch(err=>console.log(err))
+const pageRefresh = (req, res, next) => {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+};
+
+
+app.get('*', pageRefresh);
 const findorCreate=async(roomId)=>{
     const user=await collabObj.findOne({id:roomId})
     if(user==null)
