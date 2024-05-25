@@ -15,7 +15,7 @@ const io = require("socket.io")(server, {
 
   
 const {addUser,getUser,removeUser,allUsersInRoom}=require("./utils/users")
-app.get("/",(req,res)=>{
+app.get('/',(req,res)=>{
   res.send("get route")
 })
 var collabObj;
