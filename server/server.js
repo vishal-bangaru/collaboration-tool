@@ -22,9 +22,8 @@ var collabObj;
 const mclient=require("mongodb").MongoClient;
 //mongodb+srv://vishalbangaru4:vishalbangaru4@cluster0.8ttchzw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 //mongodb://127.0.0.1:27017
-require("dotenv").config()
 mclient
-.connect(process.env.MONGO_URL)
+.connect("mongodb+srv://vishalbangaru4:vishalbangaru4@cluster0.8ttchzw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then((dbRef)=>
 {   
       const dbObj=dbRef.db('testdb')
