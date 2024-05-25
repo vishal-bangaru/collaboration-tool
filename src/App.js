@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter,Routes,Route,Switch,Redirect } from "react-router-dom"; 
+import Homepage from "./pages/Homepage";
+import Editorpage from "./pages/Editorpage";
+import { v4 } from "uuid";
+import toast,{Toaster} from "react-hot-toast";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div>
+    <Toaster
+  position="top-right"
+  reverseOrder={false}
+/>
     </div>
+      <BrowserRouter>
+      
+      <Routes>
+        <Route path="/" element={<Homepage/>}/>
+          
+        
+        <Route path="/editor/:id" element={<Editorpage/>}/>
+        
+       
+      </Routes>
+    
+      </BrowserRouter>
+      </>
+    
+ 
   );
 }
 
