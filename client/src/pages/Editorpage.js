@@ -33,7 +33,7 @@ function Editorpage() {
  const curUser=location.state.user
  
   useEffect(()=>{
-    const s=io("http://localhost:4000")
+    const s=io("https://collaboration-tool.onrender.com")
     setSocket(s)
   },[])
   
